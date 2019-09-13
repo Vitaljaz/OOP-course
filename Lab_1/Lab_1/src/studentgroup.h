@@ -46,5 +46,5 @@ public:
 	void checkGrades();
 	void checkAges();
 
-	~StudentGroup();
+	~StudentGroup() {}
 };

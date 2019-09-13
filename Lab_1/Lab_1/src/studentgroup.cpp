@@ -198,9 +198,3 @@ void StudentGroup::setMinAverageScore(float t_minAverageScore)
 {
 	minAverageScore = t_minAverageScore;
 }
-
-StudentGroup::~StudentGroup()
-{
-	for (auto& i : students)
-		delete i;
-}
