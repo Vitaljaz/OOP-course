@@ -41,7 +41,7 @@ void StudentGroup::addStudent(Student* s)
 		}
 	}
 
-	s->updateGroupJoins(1);
+	s->increaseGroupJoins();
 	students.push_back(s);
 	std::cout << " * Student " << s->getSecondName() << " " << s->getFirstName() << " " << s->getMiddleName() << " ";
 	std::cout << "added to group " << course << "[" << groupID << "]\n";
@@ -53,7 +53,7 @@ void StudentGroup::removeStudent(Student* s)
 	{
 		if (*it == s)
 		{
-			s->updateGroupJoins(0);
+			s->decreaseGroupJoins();
 			students.erase(it);
 			std::cout << " * Student " << s->getSecondName() << " " << s->getFirstName() << " " << s->getMiddleName() << " ";
 			std::cout << "removed from group " << course << "[" << groupID << "]\n";
@@ -108,17 +108,17 @@ Student* StudentGroup::getStudent(const String& t_firstName, const String& t_sec
 	return nullptr;
 }
 
-size_t StudentGroup::getStudentsCount()
+const size_t StudentGroup::getStudentsCount()
 {
 	return students.size();
 }
 
-int StudentGroup::getMinAverageScore()
+const float StudentGroup::getMinAverageScore()
 {
 	return minAverageScore;
 }
 
-int StudentGroup::getMinAge()
+const int StudentGroup::getMinAge()
 {
 	return minAge;
 }
@@ -178,7 +178,7 @@ void StudentGroup::checkAges()
 	}
 }
 
-float StudentGroup::getGroupAverageScore()
+const float StudentGroup::getGroupAverageScore()
 {
 	float groupAverageScore = 0.0f;
 
@@ -189,12 +189,12 @@ float StudentGroup::getGroupAverageScore()
 	return groupAverageScore;
 }
 
-void StudentGroup::setMinAge(unsigned const int t_minAge)
+void StudentGroup::setMinAge(const uint& t_minAge)
 {
 	minAge = t_minAge;
 }
 
-void StudentGroup::setMinAverageScore(float t_minAverageScore)
+void StudentGroup::setMinAverageScore(const float& t_minAverageScore)
 {
 	minAverageScore = t_minAverageScore;
 }

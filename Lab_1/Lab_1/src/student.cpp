@@ -1,38 +1,38 @@
 #include "student.h"
 
-String Student::getFirstName()
+const String& Student::getFirstName()
 {
 	return firstName;
 }
 
-String Student::getSecondName()
+const String& Student::getSecondName()
 {
 	return secondName;
 }
 
-String Student::getMiddleName()
+const String& Student::getMiddleName()
 {
 	return middleName;
 }
 
-int Student::getAge()
+const uint Student::getAge()
 {
 	return age;
 }
 
-int Student::getID()
+const uint Student::getID()
 {
 	return ID;
 }
 
-float Student::getAverageScore()
+const float Student::getAverageScore()
 {
 	float averageScore = 0.0f;
 
 	for (auto& i : lastGrades)
 		averageScore += i;
 
-	averageScore /= 5;
+	averageScore /= lastGrades.size();
 	return averageScore;
 }
 
@@ -51,28 +51,29 @@ void Student::setMiddleName(const String& t_middleName)
 	middleName = t_middleName;
 }
 
-void Student::setID(unsigned const int& t_ID)
+void Student::setID(const uint& t_ID)
 {
 	ID = t_ID;
 }
 
-void Student::setAge(unsigned const int& t_age)
+void Student::setAge(const uint& t_age)
 {
 	age = t_age;
 }
 
-void Student::setLastGrades(const std::array<int, 5> t_lastGrades)
+void Student::setLastGrades(const std::array<int, 5>& t_lastGrades)
 {
 	lastGrades = t_lastGrades;
 }
 
-void Student::updateGroupJoins(int mode)
+void Student::increaseGroupJoins()
 {
-	if (mode == 1)
-		groupJoins++;
+	groupJoins++;
+}
 
-	if (mode == 0)
-		groupJoins--;
+void Student::decreaseGroupJoins()
+{
+	groupJoins--;
 }
 
 void Student::printInformation()
